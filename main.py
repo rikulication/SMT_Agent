@@ -5,20 +5,17 @@ import json
 app = FastAPI()
 
 @app.post("/chat")
-def chat(response : AgentInput):
+def chat(response: AgentInput):
     print(response)
-    # data = {
-    #     "messages" : {"user_messages" : response.user_messages, "order_detail" : response.order_detail}
-    # }
-    # result = agent.invoke(data)
-    # print(result)
     messages = [
         {
-            "role": "user" if msg.role == "buyer" else "assistant",
-            "content": msg.content
+            "role": msg.role,
+            "content": msg.content,
+            "time":msg.message_time
         }
         for msg in response.user_messages
     ]
+    
     order_detail = [
         order.model_dump()
         for order in response.order_detail

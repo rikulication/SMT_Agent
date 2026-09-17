@@ -6,11 +6,8 @@ LLM_MODEL_ID = getenv("LLM_MODEL_ID")
 LLM_BASE_URL = getenv("LLM_BASE_URL")
 LLM_API_KEY = getenv("LLM_API_KEY")
 
-
 if __name__ == "__main__":
     print(LLM_API_KEY)
-
-
 
 
 

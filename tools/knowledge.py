@@ -12,3 +12,6 @@ def search_knowledge(query: str):
     """搜索客服知识库，获取退款、物流、售后、商品规则等信息。"""
     docs = retriever.invoke(query)
     return [{"content": doc.page_content, "metadata": doc.metadata} for doc in docs]
+
+
+

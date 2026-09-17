@@ -1,21 +1,20 @@
 from pydantic import BaseModel, Field
 
 class Message(BaseModel):
+    # session_id: str
     role: str
     content: str
     message_time: str = Field(alias="time")
 
-
 class Order(BaseModel):
+    # session_id: str| None = None
     orderId: str | None = None
     orderState: str | None = None
     orderTime: str | None = None
 
-
 class AgentInput(BaseModel):
     user_messages: list[Message] | None = None
     order_detail: list[Order] | None = None
-
 
 # class ChatRequest(BaseModel):
 #     dialogue : AgentInput
